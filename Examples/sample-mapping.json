@@ -1,0 +1,59 @@
+{
+  "mappingName": "UK Faster Payments Example",
+  "description": "Example mapping configuration for UK payments",
+  "version": "1.0",
+  "createdAt": "2026-03-08T10:00:00Z",
+  
+  "sourceConfig": {
+    "fileStructure": "option3",
+    "delimiter": ",",
+    "quoteChar": "\""
+  },
+  
+  "targetConfig": {
+    "delimiter": ",",
+    "quoteChar": "\"",
+    "schema": {
+      "columns": [
+        {"name": "creditorName", "type": "string"},
+        {"name": "creditorCountry", "type": "string"},
+        {"name": "creditorTownName", "type": "string"},
+        {"name": "instructedAmount", "type": "number"},
+        {"name": "instructedCurrency", "type": "string"}
+      ]
+    }
+  },
+  
+  "fieldMappings": [
+    {
+      "targetField": "creditorName",
+      "sourceField": "CustomerName",
+      "transformation": null
+    },
+    {
+      "targetField": "creditorCountry",
+      "sourceField": "CustomerAddress",
+      "transformation": {
+        "functionName": "addressParser",
+        "functionCode": "function addressParser(input, outputField) { /* see docs */ }"
+      }
+    },
+    {
+      "targetField": "creditorTownName",
+      "sourceField": "CustomerAddress",
+      "transformation": {
+        "functionName": "addressParser",
+        "functionCode": "function addressParser(input, outputField) { /* see docs */ }"
+      }
+    },
+    {
+      "targetField": "instructedAmount",
+      "sourceField": "Amount",
+      "transformation": null
+    },
+    {
+      "targetField": "instructedCurrency",
+      "constantValue": "GBP"
+    }
+  ]
+}
