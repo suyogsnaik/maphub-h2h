@@ -1,0 +1,303 @@
+{
+  "mappingName": "xlinm",
+  "description": "",
+  "version": "1.0",
+  "createdAt": "2026-03-07T21:02:20.567Z",
+  "sourceConfig": {
+    "fileStructure": "option2",
+    "delimiter": ",",
+    "quoteChar": "\""
+  },
+  "targetConfig": {
+    "delimiter": ",",
+    "quoteChar": "\"",
+    "schema": {
+      "columns": [
+        {
+          "name": "MapName",
+          "type": "string",
+          "description": "Mapping name/identifier",
+          "index": 0
+        },
+        {
+          "name": "FileReference",
+          "type": "string",
+          "description": "File reference number",
+          "index": 1
+        },
+        {
+          "name": "AuthType",
+          "type": "string",
+          "description": "Authorization type",
+          "index": 2
+        },
+        {
+          "name": "CreateDate",
+          "type": "date",
+          "description": "File creation date",
+          "index": 3
+        },
+        {
+          "name": "debtorName",
+          "type": "string",
+          "description": "Debtor name",
+          "index": 4
+        },
+        {
+          "name": "debtorAddressLine1",
+          "type": "string",
+          "description": "Debtor address line 1",
+          "index": 5
+        },
+        {
+          "name": "debtorAccountNumber",
+          "type": "string",
+          "description": "Debtor account number",
+          "index": 6
+        },
+        {
+          "name": "creditorName",
+          "type": "string",
+          "description": "Creditor name",
+          "index": 7
+        },
+        {
+          "name": "creditorAddressLine1",
+          "type": "string",
+          "description": "Creditor address line 1",
+          "index": 8
+        },
+        {
+          "name": "creditorSortCode",
+          "type": "string",
+          "description": "Creditor sort code",
+          "index": 9
+        },
+        {
+          "name": "creditorAccountNumber",
+          "type": "string",
+          "description": "Creditor account number",
+          "index": 10
+        },
+        {
+          "name": "paymentType",
+          "type": "string",
+          "description": "Payment type",
+          "index": 11
+        },
+        {
+          "name": "instructedAmount",
+          "type": "number",
+          "description": "Instructed amount",
+          "index": 12
+        },
+        {
+          "name": "instructedCurrency",
+          "type": "string",
+          "description": "Instructed currency",
+          "index": 13
+        },
+        {
+          "name": "requestedExecutionDate",
+          "type": "date",
+          "description": "Requested execution date",
+          "index": 14
+        },
+        {
+          "name": "remittanceUnstructured",
+          "type": "string",
+          "description": "Remittance information",
+          "index": 15
+        },
+        {
+          "name": "endToEndId",
+          "type": "string",
+          "description": "End to end ID",
+          "index": 16
+        }
+      ]
+    }
+  },
+  "fieldMappings": [
+    {
+      "targetField": "MapName",
+      "sourceField": "FH_MapName",
+      "constantValue": null,
+      "defaultValue": null,
+      "transformation": null
+    },
+    {
+      "targetField": "FileReference",
+      "sourceField": "FH_FileReference",
+      "constantValue": null,
+      "defaultValue": null,
+      "transformation": null
+    },
+    {
+      "targetField": "AuthType",
+      "sourceField": "FH_AuthType",
+      "constantValue": null,
+      "defaultValue": null,
+      "transformation": {
+        "functionName": "transformValue",
+        "functionCode": "function transformValue(input) {\n    const mapping = { 'A': 'AUTH', 'V': 'ILEV' };\n    return mapping[input] || input;\n}",
+        "description": "Map A→AUTH, V→ILEV with fallback"
+      }
+    },
+    {
+      "targetField": "CreateDate",
+      "sourceField": "FH_CreateDate",
+      "constantValue": null,
+      "defaultValue": null,
+      "transformation": null
+    },
+    {
+      "targetField": "debtorName",
+      "sourceField": "Column5",
+      "constantValue": null,
+      "defaultValue": null,
+      "transformation": null
+    },
+    {
+      "targetField": "debtorAddressLine1",
+      "sourceField": "Column6",
+      "constantValue": null,
+      "defaultValue": null,
+      "transformation": null
+    },
+    {
+      "targetField": "debtorAccountNumber",
+      "sourceField": "Column3",
+      "constantValue": null,
+      "defaultValue": null,
+      "transformation": null
+    },
+    {
+      "targetField": "creditorName",
+      "sourceField": "Column27",
+      "constantValue": null,
+      "defaultValue": null,
+      "transformation": null
+    },
+    {
+      "targetField": "creditorAddressLine1",
+      "sourceField": "Column28",
+      "constantValue": null,
+      "defaultValue": null,
+      "transformation": null
+    },
+    {
+      "targetField": "creditorSortCode",
+      "sourceField": "Column24",
+      "constantValue": null,
+      "defaultValue": null,
+      "transformation": null
+    },
+    {
+      "targetField": "creditorAccountNumber",
+      "sourceField": "Column23",
+      "constantValue": null,
+      "defaultValue": null,
+      "transformation": null
+    },
+    {
+      "targetField": "paymentType",
+      "sourceField": "Column1",
+      "constantValue": null,
+      "defaultValue": null,
+      "transformation": null
+    },
+    {
+      "targetField": "instructedAmount",
+      "sourceField": "Column12",
+      "constantValue": null,
+      "defaultValue": null,
+      "transformation": null
+    },
+    {
+      "targetField": "instructedCurrency",
+      "sourceField": null,
+      "constantValue": "INR",
+      "defaultValue": null,
+      "transformation": null
+    },
+    {
+      "targetField": "requestedExecutionDate",
+      "sourceField": "Column11",
+      "constantValue": null,
+      "defaultValue": null,
+      "transformation": null
+    },
+    {
+      "targetField": "remittanceUnstructured",
+      "sourceField": "Column4",
+      "constantValue": null,
+      "defaultValue": null,
+      "transformation": null
+    },
+    {
+      "targetField": "endToEndId",
+      "sourceField": "Column2",
+      "constantValue": null,
+      "defaultValue": null,
+      "transformation": null
+    }
+  ],
+  "functions": [
+    {
+      "name": "transformValue",
+      "description": "Map A→AUTH, V→ILEV with fallback",
+      "category": "custom",
+      "code": "function transformValue(input) {\n    const mapping = { 'A': 'AUTH', 'V': 'ILEV' };\n    return mapping[input] || input;\n}"
+    },
+    {
+      "name": "uppercase",
+      "description": "Convert text to uppercase",
+      "category": "string",
+      "code": "function uppercase(input) {\n    return String(input).toUpperCase();\n}"
+    },
+    {
+      "name": "lowercase",
+      "description": "Convert text to lowercase",
+      "category": "string",
+      "code": "function lowercase(input) {\n    return String(input).toLowerCase();\n}"
+    },
+    {
+      "name": "trim",
+      "description": "Remove leading and trailing whitespace",
+      "category": "string",
+      "code": "function trim(input) {\n    return String(input).trim();\n}"
+    },
+    {
+      "name": "concat",
+      "description": "Concatenate multiple values",
+      "category": "string",
+      "code": "function concat(...args) {\n    return args.join('');\n}"
+    },
+    {
+      "name": "round",
+      "description": "Round number to specified decimals",
+      "category": "numeric",
+      "code": "function round(input, decimals = 0) {\n    return Number(input).toFixed(decimals);\n}"
+    },
+    {
+      "name": "formatDate",
+      "description": "Format date to YYYY-MM-DD",
+      "category": "date",
+      "code": "function formatDate(input) {\n    const date = new Date(input);\n    return date.toISOString().split('T')[0];\n}"
+    },
+    {
+      "name": "ifElse",
+      "description": "Conditional transformation",
+      "category": "conditional",
+      "code": "function ifElse(condition, trueValue, falseValue) {\n    return condition ? trueValue : falseValue;\n}"
+    }
+  ],
+  "metadata": {
+    "totalMappings": 17,
+    "totalTargetFields": 17,
+    "hasFileHeader": true,
+    "hasTransformations": true,
+    "transformationCount": 1
+  }
+}
